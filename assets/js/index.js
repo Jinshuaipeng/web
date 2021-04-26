@@ -28,7 +28,7 @@ $(function() {
         e.preventDefault()
         $.ajax({
             type: 'post',
-            url: 'http://api-breakingnews-web.itheima.net/api/reguser',
+            url: '/api/reguser',
             data: {
                 username: $('.rep2').val(),
                 password: $('.rep1').val(),
@@ -38,17 +38,12 @@ $(function() {
                 if (res.status !== 0) {
                     return layer.msg('失败');
                 } else {
-                    layer.msg('登陆成功');
+                    layer.msg('注册成功');
                     console.log(res);
                     $('.loginbox_login').click();
 
-
                 }
-
-
             }
-
-
 
         })
 
@@ -57,21 +52,21 @@ $(function() {
     $('.login').on('submit', function(e) {
         e.preventDefault()
         $.ajax({
-            method: "post",
-            url: "http://api-breakingnews-web.itheima.net/api/login",
-            data: {
-                username: $('.login1').val(),
-                password: $('.login2').val(),
-            },
+            type: "post",
+            url: "/api/login",
+            data: $(this).serialize(),
+
             success: function(res) {
-                console.log(res);
+
                 if (res.status !== 0) {
                     layer.msg('登陆失败');
-                    location.href = "index.html"
+
 
 
                 } else {
-                    layer.msg('成功');
+                    layer.msg('登录成功');
+                    // localStorage.setItem('token', res.token)
+                    // location.href = 'index.html'
 
                 }
 
@@ -80,6 +75,12 @@ $(function() {
         })
 
     })
+
+
+
+
+
+
 
 
 
