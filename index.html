@@ -20,7 +20,7 @@
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
                     <a class="userinfo" href="javascript:; ">
-                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"><span class="text_active">a</span> ** 欢迎你
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"><span class="text_active">a</span> <span class="avater">** 欢迎你</span>
 
                     </a>
                     <dl class="layui-nav-child">
@@ -29,16 +29,16 @@
                         <dd><a href="">更改密码</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href=""><span class="iconfont icon-tuichu"></span>退出</a></li>
+                <li class="layui-nav-item"><a id="btnout" href="javascript:;"><span class="iconfont icon-tuichu"></span>退出</a></li>
             </ul>
         </div>
-
+        layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){ //do something layer.close(index); });
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="test">
                     <div class="userinfo">
-                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"> <span class="text_active">a</span><span>**欢迎你</span>
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img"> <span class="text_active">a</span> <span class="avater">** 欢迎你</span>
 
                     </div>
 
@@ -82,6 +82,7 @@
     </div>
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/js/baseAPI.js"></script>
     <script src="/assets/js/login.js"></script>
 
 

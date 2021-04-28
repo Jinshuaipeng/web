@@ -1,23 +1,59 @@
 $(function() {
+    var layer = layui.layer
 
     getinfo()
+
+    $('#btnout').on('click', function() {
+        layer.confirm('确认退出?', { icon: 3, title: '提示' }, function(index) {
+            localStorage.removeItem('token')
+            location.href = "login.html"
+            layer.close(index);
+        });
+
+    })
 
 })
 
 function getinfo() {
-
     $.ajax({
-        method: "GET",
-        url: "http://api-breakingnews-web.itheima.net/my/userinfo",
-        Header: {
-            Authorization: 'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiIiwibmlja25hbWUiOiLms6Xlt7Tlt7QiLCJlbWFpbCI6Im5pYmFiYUBpdGNhc3QuY24iLCJ1c2VyX3BpYyI6IiIsImlhdCI6MTU3ODAzNjY4MiwiZXhwIjoxNTc4MDcyNjgyfQ.Mwq7GqCxJPK-EA8LNrtMG04llKdZ33S9KBL3XeuBxuI'
-        },
+        type: "get",
+        url: '/my/userinfo',
         success: function(res) {
             console.log(res);
+            if (res.status !== 0) {
+                layer.msg('失败');
+            } else {
+                layer.msg('成功');
+                avatar(res.data)
+            }
 
-        }
+        },
+        // complete: function(res) {
+        //     console.log(res);
+
+
+
+        // }
+
 
 
     })
+
+}
+
+function avatar(user) {
+    var name = user.nickname || user.username
+    $('.avater').html("欢" + name)
+    if (user.user_pic !== null) {
+        $('.layui-nav-img').attr('src', user.user_pic).show()
+        $('.text_active').hide()
+
+    } else {
+        $('.text_active').show()
+        $('.layui-nav-img').hide()
+        var frist = name[0].toUpperCase()
+        $('.text_active').html(frist)
+
+    }
 
 }
