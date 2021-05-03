@@ -32,7 +32,6 @@
                 <li class="layui-nav-item"><a id="btnout" href="javascript:;"><span class="iconfont icon-tuichu"></span>退出</a></li>
             </ul>
         </div>
-        layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){ //do something layer.close(index); });
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -60,9 +59,9 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>基本资料</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>更换头像</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>重置密码</a></dd>
+                            <dd><a href="/home/user_info.html" target="fm"><i class="layui-icon layui-icon-face-smile"></i>基本资料</a></dd>
+                            <dd><a href="/home/uesr_avater.html" target="fm"><i class="layui-icon layui-icon-face-smile"></i>更换头像</a></dd>
+                            <dd><a href="/home/user_pwd.html" target="fm"><i class="layui-icon layui-icon-face-smile"></i>重置密码</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -71,7 +70,7 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <iframe name="fm" src="/home/dashboard.html " frameborder="0"></iframe>
+            <iframe src="/home/dashboard.html" name="fm" frameborder="0"></iframe>
 
         </div>
 
@@ -84,6 +83,7 @@
     <script src="/assets/lib/jquery.js"></script>
     <script src="/assets/js/baseAPI.js"></script>
     <script src="/assets/js/login.js"></script>
+
 
 
 </body>

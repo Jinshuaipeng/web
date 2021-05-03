@@ -1,8 +1,8 @@
 $(function() {
+    console.log(window);
+
     var layer = layui.layer
-
-    getinfo()
-
+    getUserInfo()
     $('#btnout').on('click', function() {
         layer.confirm('确认退出?', { icon: 3, title: '提示' }, function(index) {
             localStorage.removeItem('token')
@@ -12,14 +12,27 @@ $(function() {
 
     })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 
-function getinfo() {
+
+function getUserInfo() {
     $.ajax({
         type: "get",
         url: '/my/userinfo',
         success: function(res) {
-            console.log(res);
             if (res.status !== 0) {
                 layer.msg('失败');
             } else {
@@ -28,14 +41,6 @@ function getinfo() {
             }
 
         },
-        // complete: function(res) {
-        //     console.log(res);
-
-
-
-        // }
-
-
 
     })
 

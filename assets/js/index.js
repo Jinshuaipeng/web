@@ -10,7 +10,6 @@ $(function() {
         $('.rep').hide();
     })
     var form = layui.form
-
     var layer = layui.layer
     form.verify({
         pass: [
